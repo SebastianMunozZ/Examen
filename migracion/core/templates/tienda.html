@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+<body>
+  {% block content %}
+  {% load static %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <br>
+
+    <div class="row margen-form">
+
+    <div class="col-md-2"></div>
+
+    <div class="col-md-8">
+      
+    <div class="row">
+
+<form method="get">
+
+
+      <div class="row " style="margin-left:10%;margin-right: 10%">
+        <div class="col-md-4">
+          <button name="mostrarTodo" onclick="mostrar('todo')" class="btn btn-success" type="button" aria-expanded="false" style="min-width: 200px;">
+          Todos los productos
+          </button>
+        </div>
+        <div class="col-md-4">
+          <button name="mostrarGatos" onclick="mostrar('Gato')" class="btn btn-success" type="button" aria-expanded="false" style="min-width: 200px;">
+          Productos para gatos
+          </button>
+        </div>
+        <div class="col-md-4">
+          <button name="mostrarPerros" onclick="mostrar('Perro')" class="btn btn-success" type="button" aria-expanded="false" style="min-width: 200px;">
+          Productos para perros
+          </button>
+        </div>
+      </div>
+    </form>
+
+
+  </div>
+</div>
+   
+    <div class="col-md-2"></div>
+  </div>
+
+
+    <br>
+    <div class="row margen-form">
+      <div class="col-md-2"></div>
+
+
+
+    <div class="col-md-8">
+    <div class="row">
+
+          {% for p in productos %}
+          <div class="card col-md-4 " id="{{p.tipo_prod}}{{p.id_prod}}">
+              <img src="{{p.imagen_prod}}" class="card-img-top; img_donacion_modal" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">{{p.nombre_prod}}</h5>
+                <p class="card-text">Valor: ${{p.valor_prod}}</p>
+                <p class="card-text">Stock: {{p.stock_prod}}</p>
+                <a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Mod_{{ p.id_prod }}">Información</a>
+              </div>
+          </div>
+         
+      
+    
+
+
+    <!-- Modales -->
+    <div class="modal fade" id="Mod_{{ p.id_prod }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">{{p.nombre_prod}}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+    
+            <div class="col">
+              <div class="card h-100">
+                <img src="{{p.imagen_prod}}" class="card-img-top;img_donacion_modal" alt="...">
+                <div class="card-body">
+                  <p class="card-text">{{p.descripcion_prod}}</p>
+                  <p class="card-text">Valor: ${{p.valor_prod}}</p>
+                  <p class="card-text">Stock: {{p.stock_prod}}</p>
+                  <button class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close" id="liveToastBtn" onclick="crudcarro('insert','{{p.nombre_prod}}_{{p.valor_prod}}')">Comprar</button>
+    </div>
+      </div> 
+        </div>
+          </div>
+            </div>
+              </div>
+                </div>
+
+    <br>
+    {% endfor %}
+    </div>
+    </div>
+
+
+  <div class="col-md-2"></div>
+  </div>
+  <!-- carrito script -->
+  <div class="modal fade" id="carrito" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Lista de productos</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="lista_compra">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary">Confirmar compra</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="fuu">
+    <button onclick="listacard()" class="btn btn-succes" style="color:white;background-color: #0fb4ac" data-bs-toggle="modal" data-bs-target="#carrito" >
+      <img style="max-width: 25px;max-height: 25px;" src="https://cdn-icons-png.flaticon.com/512/107/107831.png?w=740&t=st=1656867076~exp=1656867676~hmac=d53c842b483e40718c04509e4d393ba7a9ceae3e1801c69e4d9b4387d19b2c93" >
+      Carrito
+    </button>
+  </div>
+
+  <div class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body">
+      Hello, world! This is a toast message.
+     </div>
+      <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+  </div>
+
+<style>
+  #fuu {
+    min-height: 30px;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#191919', endColorStr='#000000');
+    width: 1px;
+    position: fixed;
+    bottom: 0;           
+    margin-bottom: 15px;
+  }
+</style>
+
+  <script src="{% static "core/js/tienda.js" %}">
+  </script>
+    {% endblock content %}
+</body>

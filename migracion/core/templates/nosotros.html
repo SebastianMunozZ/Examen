@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+<body>
+    {% block content %}
+    {% load static %}
+    <br>
+    <h5 class="texto">Nosotros</h5>
+    <p class="texto">Conoce a cada uno de los integrantes de esta agrupación</p>
+    <br>
+    <div class="container">
+      <div class="row col-12">
+        <!-- Pancho -->
+        <div class="card col-lg-4 col-md-6 col-sm-12" >
+          <img src="{% static "core/img/pancho.jpg" %}" class="card-img-top; nosotros" alt="Sacowe1">
+          <div class="card-body">
+            <h5 class="card-title; alinear_cartas">Francisco Gonzalez</h5>
+            <p class="card-text; alinear_cartas">Fundador</p>
+            <!-- Botón para mostrar el Modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal_1">
+              Más Información
+           </button>
+          </div>
+        </div>
+        <!-- Seba -->
+        <div class="card col-lg-4 col-md-6 col-sm-12" >
+          <img src="{% static "core/img/seba.jpg" %}" class="card-img-top; nosotros" alt="Sacowe2">
+          <div class="card-body">
+            <h5 class="card-title; alinear_cartas">Sebastián Muñoz</h5>
+            <p class="card-text; alinear_cartas">Fundador</p>
+            <!-- Botón para mostrar el Modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal_2">
+              Más Información
+           </button>
+          </div>
+        </div>
+        <!-- Kevin -->
+        <div class="card col-lg-4 col-md-6 col-sm-12" >
+          <img src="{% static "core/img/kevin.jpg" %}" class="card-img-top; nosotros" alt="Sacowe3">
+          <div class="card-body">
+            <h5 class="card-title; alinear_cartas">Kevin Carrasco</h5>
+            <p class="card-text; alinear_cartas">Fundador</p>
+            <!-- Botón para mostrar el Modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal_3">
+              Más Información
+           </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Pancho -->
+    <div class="modal fade" id="Modal_1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Francisco Tomás Gonzalez Leiva</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+    
+            <div class="col">
+              <div class="card h-100">
+                <img src="{% static "core/img/pancho.jpg" %}" class="card-img-top nosotros" alt="..." width="90" height="70">
+                <div class="card-body">
+                  <p class="card-text">Fundador de Adopta a un peludo y Little Pet Shop</p>
+                  <p class="card-text">Estudiante de Ingeniería en Informática
+                  </p>
+                </div>
+              </div>
+            </div>
+    
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Seba -->
+    <div class="modal fade" id="Modal_2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Sebastian Alejandro Muñoz Zúñiga</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+    
+            <div class="col">
+              <div class="card h-100">
+                <img src="{% static "core/img/seba.jpg" %}" class="card-img-top nosotros" alt="..." width="90" height="70">
+                <div class="card-body">
+                  <p class="card-text">Fundador de Adopta a un peludo y Little Pet Shop</p>
+                  <p class="card-text">Estudiante de Ingeniería en Informática</p>
+                </div>
+              </div>
+            </div>
+    
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Kevin -->
+    <div class="modal fade" id="Modal_3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Kevin Marcelo Carrasco Santis</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+    
+            <div class="col">
+              <div class="card h-100">
+                <img src="{% static "core/img/kevin.jpg" %}" class="card-img-top nosotros" alt="..." width="90" height="70">
+                <div class="card-body">
+                  <p class="card-text">Fundador de Adopta a un peludo y Little Pet Shop</p>
+                  <p class="card-text">Estudiante de Ingeniería en Informática</p>
+                  </p>
+                </div>
+              </div>
+            </div>
+    
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    {% endblock content %}
+</body>

@@ -1,0 +1,125 @@
+#colorazul {
+
+    color: blue;
+}
+.colorazul{
+
+    color:blue
+
+}
+.color_letras {
+    color: white; ;
+}
+.color_letras:hover{
+    color: grey;
+}
+.navbar_color{
+    background-color: #006414;
+}
+.carrusel{
+    height: 400px;
+}
+.letras_carrusel {
+    color: white;
+}
+.img_donacion {
+    height: 250px;
+    width: 250px;
+}
+
+.alinear_cartas {
+    text-align: center;
+}
+.texto {
+    text-align: center;
+}
+.pie {
+    background-color: #006414;
+    text-align: center;
+    color: white;
+}
+.nosotros {
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+}
+.errores {
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    -o-box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    background: red;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    color: #fff;
+    display: none;
+    font-size: 14px;
+    margin-top: -80px;
+    margin-left: 70px;
+    padding: 10px;
+    position: absolute;
+}
+.errorCorreo {
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    -o-box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    background: red;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    color: #fff;
+    display: none;
+    font-size: 14px;
+    margin-top: -80px;
+    margin-left: 150px;
+    padding: 10px;
+    position: absolute;
+}
+
+.imagen-about-us {
+    display: inline-block;
+    margin-bottom: 50px;
+    width: 45%;;
+}
+.titulo {
+    color:#0d6efd;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 60px;
+   
+}
+.modal-content{
+    background-color:#ffffff;
+}
+.card{
+    background-color:#ffffff;
+}
+.modal-header{
+    background-color:#ffffff;
+    
+}
+.img_donacion {
+    height: 100%;
+    width: 100%;
+    margin-top: 20px;
+}
+.img_donacion_modal{
+    height: 100%;
+    width: 100%;
+}
+.alin{
+
+    align-content:right;
+}
+.slide {
+    margin-top: 0px;
+   }
+.slide img{
+    height: 500px;
+    width: 500;
+    
+}
+.tam{
+    width: 50%;
+    height: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom: 50px;
+
+}

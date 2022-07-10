@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+<body>
+  
+    {% block content %}
+    {% load static %}
+    <br>
+    <h5 class="texto">Sección de donaciones</h5>
+    <p class="texto">Aquí podrás encontrar todas las fundaciones que trabajan con nosotros para que puedas hacer donaciones si quieres!.</p>
+    <br>
+
+
+
+    <div class="row margen-form">
+      <div class="col-md-2"></div>
+
+        <div class="col-md-8">
+          <div class="row">
+<!-- dona son los "datos" del objeto creado a partir de la clase Donaciones en la tabla Models, la funcion esta en views como tarjetas_dona -->
+{%for d in donaciones%}
+        <!-- Fundacion 1 -->
+        <div class="card col-md-4">
+             <!-- Trae la iamgen de la base de datos como orientado a objetos dona.img -->
+            <img src="{{d.img_dir_donacion}}" class="card-img-top; img_donacion" alt="Fundacion animales sin nombre">
+              <div class="card-body">
+                 <!-- Nos trae el Titulo de la Ong-->
+                  <h5 class="card-title; alinear_cartas">{{d.nombre_donacion}}</h5>
+                   <!-- Nos trae la Descripcion de la Ong -->
+                  <p class="card-text; alinear_cartas">{{d.description_1_donacion}}</p>
+                  <!-- Botón para mostrar el Modal relacionando la card al modal por la Id de la tabla -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Mod_{{ d.id_don }}">
+                Más Información
+                </button>
+              </div>
+          </div>
+      
+    
+    
+
+    <!-- Modal Fundacion 1 -->
+    <div class="modal fade" id="Mod_{{ d.id_don }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">{{d.nombre_donacion}}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body">
+    
+            <div class="col">
+              <div class="card h-100">
+                <img src="{{d.img_dir_donacion}}" class="card-img-top img_donacion_modal" alt="..." width="90" height="70">
+                <div class="card-body">
+                  <p class="card-text">{{d.description_1_donacion}}</p>
+                  <p class="card-text">{{d.description_2_donacion}}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+       
+    <br>
+    {%endfor%}
+
+    </div>
+    <div class="col-md-2"></div>
+    </div>
+    </div> 
+    {% endblock content %}
+</body>
