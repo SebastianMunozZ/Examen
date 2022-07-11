@@ -37,14 +37,26 @@
               <a id = "contacto" class="nav-link color_letras" href="{% url 'contacto' %}">Contacto</a>
             </li>
             
-          <li class="nav-item dropdown  " >
-            <a id="miCuenta" class="nav-link dropdown-toggle color_letras" href="#" role="button" data-bs-toggle="dropdown">Mi cuenta</a>
-            <ul class="dropdown-menu dropdown-menu-end">
-              <li><a id= "infoMiCuenta" class="dropdown-item" href="#">Iniciar sesion</a></li>
-              <li><a id= "infoMiCuenta" class="dropdown-item" href="#">Opciones</a></li>
-              <li><a id= "infoMiCuenta" class="dropdown-item" href="#">Registrarse</a></li>
-            </ul>
-          </li></ul></div>
+            <li class="nav-item dropdown  " >
+              <a id="miCuenta" class="nav-link dropdown-toggle color_letras" href="#" role="button" data-bs-toggle="dropdown">Mi cuenta</a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                {% if user.is_authenticated %}
+                <li>
+                  <a id= "infoMiCuenta" class="dropdown-item" href="{% url 'logout' %}">Cerrar Sesion</a>
+                  <a href="#">@{{ user.username }}</a>
+                </li>
+                {% else %}
+                <li>
+                  <a id= "infoMiCuenta" class="dropdown-item" href="{% url 'login' %}">Iniciar Sesion</a>
+                </li>
+                <li>
+                  <a id= "infoMiCuenta" class="dropdown-item" href="{% url 'registro' %}">Registrar Usuario</a>
+                </li>
+                {% endif %}
+              </ul>
+            </li>
+          </ul>
+        </div>
       </nav>
     </header> 
     
