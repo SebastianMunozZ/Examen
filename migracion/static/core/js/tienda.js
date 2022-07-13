@@ -64,6 +64,7 @@ const crudcarro = (tipo,prod)=>{
 }
 
 let contenidocarro = []
+let compras = []
 
 const listacard = ()=>{
     console.log('lista!')
@@ -107,6 +108,8 @@ const listacard = ()=>{
     document.getElementById('lista_compra').innerHTML = body
 }
 
+    
+
 const actualizar = (id,valor)=>{
 
     let value1 = parseInt(document.getElementById(`${id}_cantidad_un`).innerHTML)
@@ -125,16 +128,8 @@ const actualizar = (id,valor)=>{
   </div>`
 }
 
-const confirmarcompra = (productos,venta)=>{
-    const res = await fetch(api+'/reg_venta', {
-        method: 'POST', // or 'PUT'
-        body: JSON.stringify({venta:venta,producto:productos}), // data can be `string` or {object}!
-        headers:{
-          'Content-Type': 'application/json'
-        }
-      }).then(response => response.json())
-      .then(data => {console.log(data)
-        })
+const confirmarcompra = async(productos,venta)=>{
+    compras.push({productos:productos,venta:venta})
 }
 
 listacard()

@@ -128,14 +128,14 @@ def modificar_donacion(request,id):
 def registrarventa(request):
     data = JSONParser().parse(request)
     print(data)
-    # venta = data.venta
-    # serializerVenta = Venta_detalle_serializer(venta)
-    # serializer = Venta_serializer(data.productos, many=True)
-    # if serializer.is_valid():
-    #     serializer.save()
-    #     print(serializer.id)
-    #     detalleventa_ser = Detalle_venta()
-    #     if serializerVenta.is_valid():
-    #         serializerVenta.save()
-    #         stock = Producto.objects.get(id_prod)
+    venta = data.venta
+    serializerVenta = Venta_detalle_serializer(venta)
+    serializer = Venta_serializer(data.productos, many=True)
+    if serializer.is_valid():
+        serializer.save()
+        print(serializer.id)
+        detalleventa_ser = Detalle_venta()
+        if serializerVenta.is_valid():
+            serializerVenta.save()
+            stock = Producto.objects.get(id_prod)
         
