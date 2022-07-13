@@ -125,6 +125,18 @@ const actualizar = (id,valor)=>{
   </div>`
 }
 
+const confirmarcompra = (productos,venta)=>{
+    const res = await fetch(api+'/reg_venta', {
+        method: 'POST', // or 'PUT'
+        body: JSON.stringify({venta:venta,producto:productos}), // data can be `string` or {object}!
+        headers:{
+          'Content-Type': 'application/json'
+        }
+      }).then(response => response.json())
+      .then(data => {console.log(data)
+        })
+}
+
 listacard()
 //mostrar('Gato')
 

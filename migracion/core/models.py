@@ -61,5 +61,6 @@ class Detalle_venta(models.Model):
     id_venta = models.IntegerField(verbose_name='Venta asociada')
     producto = models.IntegerField(verbose_name='Valor producto')
     cantidad = models.IntegerField(verbose_name='Cantidad comprada')
+    total = models.IntegerField(verbose_name='Valor Total venta')
     def __str__(self):
         return self.producto
