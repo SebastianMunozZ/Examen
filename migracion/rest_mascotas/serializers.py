@@ -30,7 +30,12 @@ class Formulario_serializer(serializers.ModelSerializer):
         model = Venta
         fields = ['id_venta','user','total']
 
-class Formulario_serializer(serializers.ModelSerializer):
+class Venta_serializer(serializers.ModelSerializer):
     class Meta:
         model = Detalle_venta
-        fields = ['id_detalle','id_venta','producto','cantidad']
+        fields = ['id_detalle','id_venta','producto','cantidad','total']
+
+class Venta_detalle_serializer(serializers.ModelSerializer):
+    class Meta:
+        model = Detalle_venta
+        fields = ['id_detalle','id_venta','producto','cantidad','total']
